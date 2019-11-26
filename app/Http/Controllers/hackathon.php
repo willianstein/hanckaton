@@ -72,7 +72,6 @@ class hackathon extends Controller
             }else
                 $m++;
         }
-        dd($g,$m);
 
 
 //        for ($i = 0; $i < count($pal1_array); $i++) {
@@ -87,7 +86,8 @@ class hackathon extends Controller
 //        dd('tem');
 
         return view('processar', [
-
+            'quantidadeigual' =>$m,
+            'quantidadedesigual'=>$g
         ]);
     }
 }

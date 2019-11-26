@@ -1,5 +1,5 @@
-<button>
-    redire
-</button>
+a quantidade de anagrama é  {{$quantidadeigual}} <br>
 
-'aqui';
+a quantidade que não é um anagrama é {{$quantidadedesigual}}
+
+
