@@ -9,36 +9,6 @@ class hackathon extends Controller
 {
     public function anagrama(Request $request)
     {
-////        $palabra1  = c('notepad-online.txt');
-//        $palavra1 = array();
-//        $palavra2 = strtoupper($request->palavra);
-//        $palavra1 = file('notepad-online.txt');
-//        $ver = str_replace("\n", "", $palavra1);
-//        $tamanhoDoArray = count($ver);
-//
-//        foreach ($ver as $f)
-//
-////            for ($i=0;$i<$tamanhoDoArray;$i++)
-////            if(strlen($f) !== strlen($palavra2)) {
-////            }
-//                $pal1_array = str_split($f);
-//                $pal2_array = str_split($palavra2);
-//                $aux = "";
-//
-//                for ($i = 0; $i < count($pal1_array); $i++) {
-//                    if (($val = array_search($pal1_array[$i], $pal2_array)) === false) {
-//                        var_dump($palavra2);
-//                    }
-//                    //$aux.=$pal2_array[$val];
-//                    unset($pal2_array[$val]);
-//                }
-//        print_r($pal1_array);
-//
-////           dd('aqui');
-////            $f[] = strlen($b) !== strlen($palabra2);
-//
-////        dd($re,$t);
-//        dd('fim');
 
         // coloco o a palavra inserida em maiuscula
         $palavra1 = strtoupper($request->palavra);
@@ -73,17 +43,6 @@ class hackathon extends Controller
                 $m++;
         }
 
-
-//        for ($i = 0; $i < count($pal1_array); $i++) {
-//            if (($val = array_search($pal1_array[$i], $r)) === false) {
-//                dd('teste', $m, $g);
-//            }
-//            unset($r[$val]);
-//        }
-//        dd('s');
-//
-//
-//        dd('tem');
 
         return view('processar', [
             'quantidadeigual' =>$m,
