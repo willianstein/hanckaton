@@ -2,47 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositorio\BuscarPalavras;
 use Illuminate\Http\Request;
 use phpDocumentor\Reflection\File;
+use PHPUnit\Framework\StaticAnalysis\HappyPath\AssertNotInstanceOf\B;
 
 class hackathon extends Controller
 {
-    public function anagrama(Request $request)
-    {
+    public function anagrama(Request $request){
+        $repo = new BuscarPalavras;
 
         // coloco o a palavra inserida em maiuscula
         $palavra1 = strtoupper($request->palavra);
 
         //pegar o arquivo enviado
         $palavra2 = file('notepad-online.txt');
-        //retiro as quebras de linha pra trabalhar com o array
-        $palavra2 = str_replace("\n", "", $palavra2);
-//        $quant = count($palavra2);
 
-        //tranformo a palavra enviada pelo usuario em um array
-        $pal1_array = str_split($palavra1);
+      $valor=  $repo->buscarpalavra($palavra1,$palavra2);
 
-        //criar um array da palavras do arquivo
-        foreach ($palavra2 as $p) {
-            $pal2_array[] = str_split($p);
-        }
-        $m = 0;
-        $g = 0;
+      $anagramas = $repo->anagrama($palavra1,$valor);
 
-
-
-        foreach ($pal2_array as $r) {
-            if (count($r) == count($pal1_array)){
-                for ($i = 0; $i < count($pal1_array); $i++) {
-                    if (($val = array_search($pal1_array[$i], $r)) === false) {
-                        $g++;
-                    }
-                    unset($r[$val]);
-                }
-            }else
-                $m++;
-        }
-
+       dd($anagramas);
 
         return view('processar', [
             'quantidadeigual' =>$m,
